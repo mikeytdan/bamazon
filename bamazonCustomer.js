@@ -72,7 +72,7 @@ function selectQuantityForProduct(product) {
             }
         }
     ]).then(function (response) {
-        if (response.length == 0) {
+        if (response.quantity == 0) {
             console.log("Canceled order!");
             connection.end();
             return

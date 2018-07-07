@@ -120,7 +120,7 @@ function selectQuantityForAddingProduct(product) {
             }
         }
     ]).then(function (response) {
-        if (response.length == 0) {
+        if (response.quantity == 0) {
             console.log("Canceled operation!");
             connection.end();
             return
@@ -178,7 +178,7 @@ function addNewProduct() {
         var query = connection.query("INSERT INTO products SET ?", {
             product_name: response.name,
             department_name: response.department,
-            price: parseInt(response.stock),
+            price: parseInt(response.price),
             stock_quantity: parseInt(response.stock)
         }, function (err, res) {
             if (err) throw err;
